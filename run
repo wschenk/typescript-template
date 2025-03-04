@@ -1,0 +1,12 @@
+#!./node_modules/.bin/tsx
+import { run, subcommands } from "cmd-ts";
+// import "dotenv/config";
+import process from "node:process";
+import { complete } from "@/complete";
+
+const app = subcommands({
+  name: "app",
+  cmds: { complete },
+});
+
+run(app, process.argv.slice(2)).catch(console.error);
